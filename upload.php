@@ -11,24 +11,6 @@
 ?>
 
 <?php
-    $file = './files/data.csv';
-    $row = 0;
-    if (($handler = fopen($file, "r")) !== FALSE) {
-        while (($data = fgetcsv($handler, 1000, ",")) !== FALSE) {
-            if ($row > 0) {
-                $num = count($data);
-                echo "<p>Ligne $row: <br /></p>\n";
-                for ($c=0; $c < $num; $c++) { 
-                    echo $data[$c] . "<br />\n";
-                }
-            }
-            $row++;
-        }
-    }
-
-?>
-
-<?php
     if (isset($_POST["submit"])) {
         var_dump($_FILES);
         die();
