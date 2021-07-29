@@ -12,11 +12,8 @@
 
 <?php
     if (isset($_POST["submit"])) {
-        $filesDir = './files/';
-        $uploadfile = $filesDir . md5(uniqid()) . basename($_FILES['file']['name']);
-        if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-            echo "Le fichier est valide.";
-        }
+        var_dump($_POST["submit"]);
+        die();
     }
 ?>
 
