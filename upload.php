@@ -11,18 +11,26 @@
 ?>
 
 <?php
-    file_put_contents('./files/demo.txt', 'Bonjour John !');
-    echo file_get_contents('./files/demo.txt');
+    $file = './files/data.csv';
+    $row = 0;
+    if (($handler = fopen($file, "r")) !== FALSE) {
+        while (($data = fgetcsv($handler, 1000, ",")) !== FALSE) {
+            if ($row > 0) {
+                $num = count($data);
+                echo "<p>Ligne $row: <br /></p>\n";
+                for ($c=0; $c < $num; $c++) { 
+                    echo $data[$c] . "<br />\n";
+                }
+            }
+            $row++;
+        }
+    }
 
-    $fichier = fopen('./files/demo2.txt', 'c+b');
-    fwrite($fichier, 'Fichier n°2 !');
-
-    echo "<br/><br/>";
 ?>
 
 <?php
     if (isset($_POST["submit"])) {
-        var_dump($_POST["submit"]);
+        var_dump($_FILES);
         die();
     }
 ?>
