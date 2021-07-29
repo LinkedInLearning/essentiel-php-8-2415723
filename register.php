@@ -12,14 +12,8 @@
 
 <?php
     if (isset($_POST["submit"])) {
-        $handler = fopen('./files/users.csv', 'a');
-        fputcsv($handler, [
-            $_POST["email"],
-            $_POST["password"],
-            $_POST["firstname"],
-            $_POST["lastname"]
-        ]);
-        fclose($handler);
+        var_dump($_POST["submit"]);
+        die();
     }
 ?>
 
