@@ -10,13 +10,7 @@ $menu = [
 $menuHtml = "<ul>";
 
 foreach ($menu as $key => $val) {
-    if (
-        (isset($_SESSION['login']) && ($key != 'login') && ($key != 'register'))
-         || 
-         (!isset($_SESSION['login']) && ($key != 'upload'))
-         ) {
-        $menuHtml .= '<li><a href="' . $val . '">' . $key . '</a></li>';
-    }
+    $menuHtml .= '<li><a href="' . $val . '">' . $key . '</a></li>';
 }
 $menuHtml .= "</ul>";
 
