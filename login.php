@@ -11,34 +11,19 @@
 ?>
 
 <?php
-    function isExist($login, $password) {
-        $exist = false;
-
-        $file = './files/users.csv';
-        $row = 0;
-        if (($handle = fopen($file, "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                if (($data[0] == $login) && ($data[1] == $password)) {
-                    $exist = true;
-                }
-            }
-            fclose($handle);
-        }
-
-        return $exist;
-    }
-
     if (isset($_POST["submit"])) {
-        if (strlen($_POST["email"] > 5) && strlen($_POST["password"] > 5)) {
-            if (isExist($_POST["email"], $_POST["password"])) {
-                $_SESSION['login'] = $_POST["email"];
-                header('Location: ./index.php');
-                exit;
-            } else {
-                echo "Erreur";
-            }
-        }
+        var_dump($_POST);
+        die();
     }
+?>
+
+<?php
+    $value = "Mon premier Cookie PHP";
+    setcookie("DemoCookie", $value, time()+3600);
+
+    $value = "Ma session PHP";
+    $_SESSION['DemoSession'] = $value;
+    echo $_SESSION['DemoSession'];
 ?>
 
 <form action="login.php" method="POST">  
