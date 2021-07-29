@@ -11,6 +11,16 @@
 ?>
 
 <?php
+    file_put_contents('./files/demo.txt', 'Bonjour John !');
+    echo file_get_contents('./files/demo.txt');
+
+    $fichier = fopen('./files/demo2.txt', 'c+b');
+    fwrite($fichier, 'Fichier n°2 !');
+
+    echo "<br/><br/>";
+?>
+
+<?php
     if (isset($_POST["submit"])) {
         var_dump($_POST["submit"]);
         die();
